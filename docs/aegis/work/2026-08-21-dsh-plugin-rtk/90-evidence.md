@@ -19,11 +19,12 @@
 
 ## DSH Version Evidence
 
-- npm dist-tags：`latest=0.1.0-rc.7`、`next=0.1.1-rc.1`。
+- npm dist-tags：初次研究为 `latest=0.1.0-rc.7`、`next=0.1.1-rc.1`；2026-08-21 第 1 个续行轮次复核时两者均已指向 `0.1.1-rc.1`。该变化不改变 rc.7 最低兼容要求。
 - `@deepseek-ai/dsh-typert-generator`、protocol、loader、registry、gateway、Client runtime/modules/theme 等目标包均有 rc.7/rc.1 发布。
 - 两版本 generator `package.json` 没有 `bin`；`dsh plugin` tagged implementation 仅转发 pnpm 并 reconciliation bundle list。
 - Public generator exports 包含 analyzer、emitter、`WorkspaceTypertGenerator` 和 `./tsdown` plugin。
 - Public `typertPlugin(options)` 只有 `mode: 'package' | 'workspace'` 与 `faces` 参数；没有 standalone root package 配置项。
+- 第 1 个续行轮次重新读取 rc.7/rc.1 generator 与 Client modules exports，surface 未变化；`@deepseek-ai/dsh-client-build`、`@deepseek-ai/dsh-plugin-build`、`@deepseek-ai/dsh-build` 均未发布，upstream issue 搜索未发现 standalone Typert 或 Client builder 的修复记录。
 
 ## Typert Standalone Probe
 
@@ -84,7 +85,7 @@ rc1 artifacts=0
 ## Stop-Gate Decision
 
 1. rc.7 失败，不能抬高最低版本规避。
-2. rc.1 同样失败，升级到 next 不能解决。
+2. rc.1 同样失败，升级到当前 `latest`/`next` 不能解决。
 3. custom generator、fake workspace、source mirroring 与 Host-only 均被批准计划禁止。
 4. 结果记录为 `blocked-official-api`。
 5. Stage 1 最小骨架未实现；Stage 2 至 Stage 9 未启动；没有 plugin install、RTK install、Release 或用户数据需要业务清理。
