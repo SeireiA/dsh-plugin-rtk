@@ -1,0 +1,22 @@
+name: Feature request
+description: 提议与 DSH RTK 插件边界一致的新能力
+title: '[Feature] '
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 问题
+      description: 描述用户工作流中的具体问题，不要只描述实现方案。
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: 期望结果
+    validations:
+      required: true
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: 权限、数据和兼容性边界

@@ -1,0 +1,92 @@
+{
+  "name": "dsh-plugin-rtk",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness plugin that routes eligible shell output through RTK",
+  "type": "module",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "dsh.plugin.json",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "clean": "node scripts/clean-derived.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "check:lines": "node scripts/check-file-lines.mjs",
+    "check:deps": "depcruise --config .dependency-cruiser.cjs src tests scripts",
+    "check:unused": "knip",
+    "check:duplication": "jscpd --config .jscpd.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "bundle": "tsdown",
+    "check:package": "node scripts/check-package.mjs",
+    "check": "pnpm run format:check && pnpm run lint && pnpm run check:lines && pnpm run check:deps && pnpm run check:unused && pnpm run check:duplication && pnpm run typecheck && pnpm run test:coverage && pnpm run bundle && pnpm run check:package",
+    "prepack": "pnpm run check"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "rtk",
+    "token-saver"
+  ],
+  "author": "SeireiA",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeireiA/dsh-plugin-rtk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SeireiA/dsh-plugin-rtk/issues"
+  },
+  "homepage": "https://github.com/SeireiA/dsh-plugin-rtk#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "packageManager": "pnpm@11.22.0",
+  "devDependencies": {
+    "@eslint/js": "9.39.2",
+    "@types/node": "24.13.3",
+    "@vitest/coverage-v8": "4.1.11",
+    "dependency-cruiser": "18.2.0",
+    "eslint": "9.39.2",
+    "eslint-import-resolver-typescript": "4.4.5",
+    "eslint-plugin-import": "2.32.0",
+    "globals": "17.11.0",
+    "jscpd": "5.0.16",
+    "knip": "6.32.2",
+    "prettier": "3.9.6",
+    "tsdown": "0.22.14",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.67.0",
+    "vitest": "4.1.11"
+  },
+  "knip": {
+    "entry": [
+      "scripts/*.mjs"
+    ],
+    "project": [
+      "src/**/*.ts",
+      "tests/**/*.ts",
+      "*.config.{js,mjs,cjs,ts}"
+    ]
+  }
+}

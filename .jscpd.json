@@ -1,0 +1,18 @@
+{
+  "threshold": 3,
+  "reporters": ["console"],
+  "minLines": 8,
+  "minTokens": 50,
+  "formats": ["typescript", "javascript"],
+  "path": ["src", "tests", "scripts"],
+  "ignore": [
+    "**/fixtures/**",
+    "**/generated/**",
+    "**/node_modules/**",
+    "**/coverage/**",
+    "**/dist/**",
+    "**/lib/**"
+  ],
+  "absolute": false,
+  "exitCode": 1
+}
