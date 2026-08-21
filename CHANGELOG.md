@@ -11,4 +11,8 @@
 - 已批准的中文开发、架构、界面、工程和验收计划。
 - 标准 TypeScript 工程骨架与可执行的质量门禁。
 
+### 修复
+
+- 将开发包管理器固定为支持 Node.js 20 的 pnpm 10.34.5，保持三平台兼容性验证可执行。
+
 [未发布]: https://github.com/SeireiA/dsh-plugin-rtk/compare/v0.1.0...HEAD

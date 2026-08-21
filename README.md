@@ -19,7 +19,7 @@ A DeepSeek Harness plugin that delegates shell-command rewriting and output comp
 Prerequisites:
 
 - Node.js 20.19 or later
-- pnpm 11.22.0
+- pnpm 10.34.5
 - Git
 
 ```sh

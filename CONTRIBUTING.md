@@ -3,7 +3,7 @@
 ## 开发环境
 
 1. 安装 Node.js 20.19 或更高版本。
-2. 使用 Corepack 或官方 pnpm 安装 pnpm 11.22.0。
+2. 使用 Corepack 或官方 pnpm 安装 pnpm 10.34.5。
 3. 执行 `pnpm install --frozen-lockfile`。
 4. 修改前阅读 `docs/工程规范.md` 和对应 Owner 文档。
 
