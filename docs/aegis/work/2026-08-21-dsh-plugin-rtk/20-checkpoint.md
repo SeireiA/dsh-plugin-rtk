@@ -2,19 +2,20 @@
 
 ## 当前状态
 
-- Active work：Stage 1 阻断证据收束。
-- Completed：阶段 0、第五版文档基线、旧 Stage 1 实验路径退休。
+- Completed：阶段 0、第五版文档基线、旧 Stage 1 实验路径退休和官方 API stop gate 评估。
 - Blocked：Stage 1 官方 Host/Client/Typert/loader/Slot 闭环。
 - Not started：Stage 1 最小双端骨架、阶段 2 至阶段 9。
-- Decision：`blocked-official-api`；完整项目暂停，不发布 Host-only。
+- Consecutive rechecks：同一官方 API 缺口已在 3 个 goal continuation rounds 持续存在。
+- Goal closure decision：`blocked`，不是 `complete`；完整项目暂停，不发布 Host-only。
 
 ## 已提交基线
 
-- Branch：`main`。
-- HEAD / `origin/main`：`d06c5a1dcc85adac2330507b52085b14bfb5ed2e`。
-- Origin：`https://github.com/SeireiA/dsh-plugin-rtk.git`。
+- Branch / Origin：`main` / `https://github.com/SeireiA/dsh-plugin-rtk.git`。
 - GitHub active account：`SeireiA`。
-- 文档基线 CI：run `32463194830`，Windows/macOS/Linux × Node 20/24 六任务通过。
+- 第五版文档：`d06c5a1dcc85adac2330507b52085b14bfb5ed2e`，CI `32463194830` 六任务通过。
+- 初始 blocker：`4c118dd3f6ea707446d5c8dfb314a24475600d62`，CI `32468514765` 六任务通过。
+- Round 1 漂移证据：`e07c1a1fa49203b15a5869e7bc54dcb89ae0cb3a`，CI `32469437304` 六任务通过。
+- 最终 goal closure SHA/CI 由本文件所属提交的 Git receipt 记录，不能在提交前自引用。
 
 ## Retirement Receipt
 
@@ -52,12 +53,14 @@
 - Retirement：旧实验已删除且未重建 fallback。
 - Decision：whole-project-pause。
 
-## Evidence Commit Gate
+## Final Closure Gate
 
-1. 权威文档和 Aegis 阻断状态已同步。
-2. Task-owned research 与项目派生产物已按 ownership guard 删除。
-3. 文档格式、400 行、矛盾词、变更路径和完整 `pnpm run check` 已通过。
-4. 本变更只包含 8 个文档 Owner；必须独立提交、推送并核对 SHA/CI 后才可交付阻断状态。
+1. 三个连续 goal rounds 分别复核 registry/exports、current master/source publication 和 immutable target package surfaces。
+2. 独立 upstream falsifier 返回 `BLOCKER_PERSISTS`；不得引用无法公开核验或指向无关 Discussion 的 PR 编号。
+3. Task-owned research、项目派生产物、Profile 安装和相关进程均已清场。
+4. 最终变更只允许包含 checkpoint/evidence Owner；须完成独立审查、完整 `pnpm run check`、中文提交、push、SHA 和 CI。
+5. 当前 work record 是 Markdown-only 旧结构；Aegis helper `bundle`/`check` 因缺少 JSON sidecar 和 workspace scaffold 在写入前失败。该结构风险必须披露，不用 `init` 或 sibling record 扩张 Owner 掩盖。
+6. 上述证据闭合后，将持久 goal 标记为 `blocked`；不得标记 `complete` 或继续阶段 2。
 
 ## Resume State Hint
 

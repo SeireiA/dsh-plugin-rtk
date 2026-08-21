@@ -75,12 +75,23 @@ rc1 artifacts=0
 - 新 bundle 仅含 `packageIdentity` 的 4 个 Stage 0 artifact，不再含 Remote/Client/Typert 文件；验证后再次运行 owner clean 删除 `lib`、coverage 等派生产物。
 - DSH Profile manifest 扫描未发现 `dsh-plugin-rtk`，进程扫描未发现插件相关进程；项目保持未安装。
 
+## Goal Continuation Rechecks
+
+1. Round 1：npm `latest`/`next` 漂移到 rc.1；重新读取 rc.7/rc.1 generator 与 Client modules exports，未增加 CLI/build export；三个可能的官方 build-helper 包均未发布。证据提交 `e07c1a1fa49203b15a5869e7bc54dcb89ae0cb3a` 及 CI `32469437304` 通过。
+2. Round 2：检查 current master `528c682e061696f5a160f363f236ecbf53cbd006`。Generator root discovery、`<root>/packages/**` filter 和 nested-only tests 未变化；Client helper 仍是 source-only `packages/client/tsdown.client.ts`，官方插件仍使用仓库相对 import。
+3. Round 3：重新读取四个目标 npm tarball 的 integrity、tarball URL、`bin` 和 exports；immutable target surfaces 未变化。Master、dist-tags、批准 stop condition、本地/远端、CI、清场和未安装状态均再次核对。
+4. 独立 current-upstream falsifier 返回 `BLOCKER_PERSISTS`；当前 master 就是 rc.1 release merge，在本轮检查的 current master、公开 issue/PR 检索和目标版本 surfaces 中，未发现可用于两个目标版本的 qualifying build path。
+5. 同一具体阻断条件已连续存在 3 个 goal rounds，满足持久 goal 的 blocked policy；结果只能是 `blocked`，不能是 `complete`。
+6. Final closure 时调用当前 Aegis workspace helper：`bundle` 因缺少 `task-intent-draft.json` 失败；独立 `check` 因缺少 `docs/aegis/{adr,baseline,specs,plans}` 与 `README.md`、`INDEX.md`、`BASELINE-GOVERNANCE.md` scaffold 失败。两者均未写入文件。此 Markdown-only 旧记录的结构检查未通过，作为 residual risk 披露，不作为产品 blocker 已解除或 whole-task complete 的证据。
+
 ## Independent Review
 
 - Official bridge research subagent verdict：`BLOCKED`。
 - Findings-first spec reviewer verdict：`APPROVE_BLOCKER`。
+- Current-upstream falsifier verdict：`BLOCKER_PERSISTS`。
 - Reviewer 纠正：不能声称没有 public generator API；准确表述是没有适用于当前 topology 的官方 standalone build integration。
 - Reviewer 结论：mandatory generated artifacts 是严格前置，继续 profile install/Remote/Slot 测试不能改变 blocker。
+- 不把公开不可核验或解析到无关 Discussion 的 PR 编号作为证据。
 
 ## Stop-Gate Decision
 
@@ -89,4 +100,5 @@ rc1 artifacts=0
 3. custom generator、fake workspace、source mirroring 与 Host-only 均被批准计划禁止。
 4. 结果记录为 `blocked-official-api`。
 5. Stage 1 最小骨架未实现；Stage 2 至 Stage 9 未启动；没有 plugin install、RTK install、Release 或用户数据需要业务清理。
-6. 重新评估只接受新的官方 standalone Typert/Client build 能力，或用户明确批准修订现有架构边界。
+6. 三轮持续性复核后，持久 goal 应标记为 `blocked`，不得标记 `complete`。
+7. 重新评估只接受新的官方 standalone Typert/Client build 能力，或用户明确批准修订现有架构边界。
