@@ -102,3 +102,9 @@ rc1 artifacts=0
 5. Stage 1 最小骨架未实现；Stage 2 至 Stage 9 未启动；没有 plugin install、RTK install、Release 或用户数据需要业务清理。
 6. 三轮持续性复核后，持久 goal 应标记为 `blocked`，不得标记 `complete`。
 7. 重新评估只接受新的官方 standalone Typert/Client build 能力，或用户明确批准修订现有架构边界。
+
+## 第六版历史 supersession 标记
+
+- 2026-08-23 用户批准第六版并授权从 Stage 1H 开始实施；本证据仍只证明第五版 Client/Remote/Slot blocker。
+- 第六版没有宣称 Stage 1C 已解决，也没有把本记录的 blocker 证据当作 Host enforcement 运行证据。
+- 后续 Stage 1H 证据必须在新的执行记录中记录真实 rc.7/rc.1 scheduler、receipt、guard、lifecycle 和副作用验证。

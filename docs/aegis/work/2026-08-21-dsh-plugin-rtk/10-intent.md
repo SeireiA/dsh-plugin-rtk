@@ -44,7 +44,13 @@
 
 ## Impact Statement
 
-旧复杂 workaround 已完全退出工作树。没有添加替代 generator、兼容层或 Host-only 分支。产品范围未漂移，但实现无法跨越强制 Client/Remote 前置条件；因此阶段 1 最小骨架、RTK 业务和 UI 都没有进入编码。
+旧复杂 workaround 已完全退出工作树。没有添加替代 generator、兼容层或 Host-only 分支。第五版 whole-project-pause 与 guidance-only 保证由用户批准的第六版取代；第五版 blocker 事实和证据保持历史有效，第六版将 Host enforcement 拆为 Stage 1H 并保留 Stage 1C Client/Remote blocker。
+
+## 第六版历史 supersession 标记
+
+- 2026-08-23 用户批准第六版候选并授权提交、推送和阶段性编码。
+- 本历史记录只保留第五版事实、证据和退休结果；未来执行以第六版五份权威文档为准。
+- 第六版不恢复 custom generator、假 workspace、源码/协议镜像、手写 codec、Host-only 正式发布或其他已退休 fallback。
 
 ## Execution Readiness View
 

@@ -64,4 +64,10 @@
 
 ## Resume State Hint
 
-恢复时先读取本 checkpoint 和 `docs/开发计划.md` 第 9 节。只有新的官方 standalone Typert/Client build 能力，或用户明确批准修改当前拓扑与禁止边界，才重新执行 Stage 1 stop gate；不能直接进入阶段 2。
+第五版历史 checkpoint 已由用户在 2026-08-23 批准的第六版取代。未来恢复先读取第六版五份权威文档和新的执行 checkpoint；Stage 1H 先行，Stage 1C 仍阻断阶段 6 至阶段 9 与正式发布。
+
+## 第六版历史 supersession 标记
+
+- 第五版 `whole-project-pause` 仅作为历史关闭状态保留，不再作为未来执行口径。
+- 第六版 activation、strict active failure、classifier+receipt+guard 和 1H/1C split 是当前执行基线。
+- 第五版 stop-gate 证据不被重写、不被删除，也不证明第六版 Stage 1H 已通过。
